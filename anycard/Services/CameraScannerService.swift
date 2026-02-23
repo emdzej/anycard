@@ -38,6 +38,7 @@ final class CameraScannerService: NSObject, @unchecked Sendable {
     
     private func setupSession() {
         captureSession.beginConfiguration()
+        defer { captureSession.commitConfiguration() }
         
         // Add video input
         guard let videoDevice = AVCaptureDevice.default(for: .video),
@@ -55,8 +56,6 @@ final class CameraScannerService: NSObject, @unchecked Sendable {
             metadataOutput.setMetadataObjectsDelegate(self, queue: .main)
             metadataOutput.metadataObjectTypes = supportedTypes
         }
-        
-        captureSession.commitConfiguration()
     }
     
     // MARK: - Public API
