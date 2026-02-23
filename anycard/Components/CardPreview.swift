@@ -64,7 +64,20 @@ struct CardPreview: View {
         }
         .padding(12)
         .frame(width: size.width, height: size.height)
-        .background(Color(card.backgroundUIColor))
+        .background {
+            // Custom image or solid color
+            if let imageData = card.customImage, let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .overlay {
+                        // Dark overlay for readability
+                        Color.black.opacity(0.4)
+                    }
+            } else {
+                Color(card.backgroundUIColor)
+            }
+        }
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .shadow(color: .black.opacity(0.2), radius: 4, y: 2)
     }

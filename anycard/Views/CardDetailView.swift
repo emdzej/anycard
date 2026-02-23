@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct CardDetailView: View {
-    let card: Card
+    @Bindable var card: Card
+    @State private var showEditSheet = false
     
     var body: some View {
         ScrollView {
@@ -13,6 +14,9 @@ struct CardDetailView: View {
                     DetailRow(title: "Code", value: card.code)
                     DetailRow(title: "Code Type", value: card.codeType.rawValue)
                     DetailRow(title: "Added", value: card.createdAt.formatted(date: .abbreviated, time: .shortened))
+                    if card.updatedAt != card.createdAt {
+                        DetailRow(title: "Modified", value: card.updatedAt.formatted(date: .abbreviated, time: .shortened))
+                    }
                 }
                 .padding()
                 .background(Color(.systemBackground))
@@ -39,6 +43,18 @@ struct CardDetailView: View {
         .background(Color(.systemGroupedBackground))
         .navigationTitle(card.name)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    showEditSheet = true
+                } label: {
+                    Text("Edit")
+                }
+            }
+        }
+        .sheet(isPresented: $showEditSheet) {
+            EditCardView(card: card)
+        }
     }
 }
 
