@@ -1,6 +1,6 @@
 name: anycard
 options:
-  bundleIdPrefix: com.emdzej
+  bundleIdPrefix: pl.emdzej
   deploymentTarget:
     iOS: "17.0"
   xcodeVersion: "26.1"
@@ -22,12 +22,12 @@ targets:
           - "**/*.md"
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.emdzej.anycard
+        PRODUCT_BUNDLE_IDENTIFIER: pl.emdzej.anycard
         INFOPLIST_GENERATION_MODE: GeneratedFile
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
         INFOPLIST_KEY_UILaunchScreen_Generation: true
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
-        INFOPLIST_KEY_CFBundleDisplayName: anycard
+        INFOPLIST_KEY_CFBundleDisplayName: Anycard
         INFOPLIST_KEY_NSCameraUsageDescription: "anycard needs camera access to scan barcodes and QR codes from your existing loyalty cards."
         INFOPLIST_KEY_NSPhotoLibraryUsageDescription: "anycard needs photo library access to scan barcodes from images and add custom card images."
         GENERATE_INFOPLIST_FILE: true
@@ -43,9 +43,9 @@ targets:
             CFBundleTypeRole: Editor
             LSHandlerRank: Owner
             LSItemContentTypes:
-              - com.emdzej.anycard.backup
+              - pl.emdzej.anycard.backup
         UTExportedTypeDeclarations:
-          - UTTypeIdentifier: com.emdzej.anycard.backup
+          - UTTypeIdentifier: pl.emdzej.anycard.backup
             UTTypeDescription: anycard Backup File
             UTTypeConformsTo:
               - public.json
