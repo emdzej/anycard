@@ -8,7 +8,7 @@ struct ImageScanResult {
 }
 
 /// Service for scanning barcodes from images using Vision framework
-final class ImageScannerService {
+final class ImageScannerService: @unchecked Sendable {
     
     enum ScanError: LocalizedError {
         case noBarcodesFound
