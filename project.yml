@@ -1,0 +1,52 @@
+name: anycard
+options:
+  bundleIdPrefix: com.emdzej
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "26.1"
+  developmentLanguage: en
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: "6.0"
+
+targets:
+  anycard:
+    type: application
+    platform: iOS
+    sources:
+      - path: anycard
+        excludes:
+          - "**/*.md"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.emdzej.anycard
+        INFOPLIST_GENERATION_MODE: GeneratedFile
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
+        INFOPLIST_KEY_UILaunchScreen_Generation: true
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_CFBundleDisplayName: anycard
+        INFOPLIST_KEY_NSCameraUsageDescription: "anycard needs camera access to scan barcodes and QR codes from your existing loyalty cards."
+        GENERATE_INFOPLIST_FILE: true
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0.0
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+
+schemes:
+  anycard:
+    build:
+      targets:
+        anycard: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
