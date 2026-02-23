@@ -236,3 +236,33 @@ card.pkpass/
 2. **App Icon** — design?
 
 3. **Nazwa w App Store** — "anycard"? Może być zajęte.
+
+## 11. Development Setup
+
+### Signing
+
+| Phase | Signing | Notes |
+|-------|---------|-------|
+| Development | Personal Team | Free, 7-day cert |
+| Wallet Integration | Apple Developer Program | $99/year, required for Pass Type ID |
+
+### MVP without Developer Account
+
+1. ✅ UI (SwiftUI)
+2. ✅ Camera scanning (AVFoundation)
+3. ✅ Local storage (SwiftData)
+4. ✅ Pass preview (mock - shows how card will look)
+5. ❌ Add to Wallet (disabled until Developer Account)
+
+## 12. Design
+
+### App Icon
+- Style: Single card with diagonal stripe
+- Color: Blue gradient
+- Format: 1024x1024 PNG (App Store), @1x/@2x/@3x for app
+
+### Color Palette
+- Primary: #007AFF (iOS blue)
+- Secondary: #5856D6 (purple accent)
+- Background: #F2F2F7 (system gray 6)
+- Card default: #1C1C1E (dark)
