@@ -8,7 +8,7 @@ protocol BarcodeScannerDelegate: AnyObject {
 }
 
 /// Service for scanning barcodes using device camera
-final class CameraScannerService: NSObject {
+final class CameraScannerService: NSObject, @unchecked Sendable {
     weak var delegate: BarcodeScannerDelegate?
     
     private let captureSession = AVCaptureSession()
