@@ -12,14 +12,17 @@
 		1B002DBCDB7D645CADA9C764 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9293081E7830355E352AC /* CardDetailView.swift */; };
 		1C9375BE0C61FC3C8A476F3B /* CardPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C945AB3F7095DB5C397AFE1 /* CardPreview.swift */; };
 		2109F4634E8C9B02EA3B6A5A /* ImageScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69969AEFCBACE0FBA86C81A5 /* ImageScannerService.swift */; };
+		45AD54526C90F35C160B1805 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBD8FB26D9715AA4CE709F4 /* SettingsView.swift */; };
 		4B03F606C4C92F80C0D11616 /* CameraScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8FF35EEEF50F7C39126EF2 /* CameraScannerService.swift */; };
 		61C3C5D511DA483D69B5999E /* CameraScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31D6E41DA536E243349DEF /* CameraScannerView.swift */; };
 		75CEBC921971ED2D835CF53A /* EditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90461DCED8A9AD5142D99ABB /* EditCardView.swift */; };
 		7C77BCFEFCA7C0DB8BBB6521 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DBD83C855D26918D3DD48 /* AddCardView.swift */; };
 		A09345909C5981149B394751 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E60C1687C4240A7DAB41C38 /* Card.swift */; };
 		AB6A95AABDBE8DA99FC54F47 /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF33EE2A18362B326956C37 /* BarcodeView.swift */; };
+		AED583E72D45EEF100AFF292 /* UTType+Anycard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18825B700010118FECA8F12 /* UTType+Anycard.swift */; };
 		B305F13D671CB3100DB27837 /* BarcodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4453A82CF5A2471AB5CFDB /* BarcodeGenerator.swift */; };
 		B4DB7B02D919952B41EEA0AA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B97C74B90A896608E1D043 /* HomeView.swift */; };
+		C8CB6C2528E6618A85A018EE /* CardExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36BB7E3B0AB71EFC448F1B8 /* CardExportService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,11 +35,15 @@
 		5BFEB9641C37E582CD540E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E60C1687C4240A7DAB41C38 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		69969AEFCBACE0FBA86C81A5 /* ImageScannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScannerService.swift; sourceTree = "<group>"; };
+		8F4D2DAF11054B8616FBD9FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		90461DCED8A9AD5142D99ABB /* EditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardView.swift; sourceTree = "<group>"; };
 		9BF33EE2A18362B326956C37 /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
 		9E4453A82CF5A2471AB5CFDB /* BarcodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeGenerator.swift; sourceTree = "<group>"; };
 		9F69C703BEF4A2D5BD2FD945 /* anycardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = anycardApp.swift; sourceTree = "<group>"; };
 		A00DBD83C855D26918D3DD48 /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
+		D18825B700010118FECA8F12 /* UTType+Anycard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType+Anycard.swift"; sourceTree = "<group>"; };
+		DBBD8FB26D9715AA4CE709F4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F36BB7E3B0AB71EFC448F1B8 /* CardExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExportService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -44,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				5E60C1687C4240A7DAB41C38 /* Card.swift */,
+				D18825B700010118FECA8F12 /* UTType+Anycard.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -61,6 +69,7 @@
 			children = (
 				9E4453A82CF5A2471AB5CFDB /* BarcodeGenerator.swift */,
 				1C8FF35EEEF50F7C39126EF2 /* CameraScannerService.swift */,
+				F36BB7E3B0AB71EFC448F1B8 /* CardExportService.swift */,
 				69969AEFCBACE0FBA86C81A5 /* ImageScannerService.swift */,
 			);
 			path = Services;
@@ -74,6 +83,7 @@
 				32C9293081E7830355E352AC /* CardDetailView.swift */,
 				90461DCED8A9AD5142D99ABB /* EditCardView.swift */,
 				27B97C74B90A896608E1D043 /* HomeView.swift */,
+				DBBD8FB26D9715AA4CE709F4 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,6 +108,7 @@
 		B389F6D9969B5B3739EDFD8F /* anycard */ = {
 			isa = PBXGroup;
 			children = (
+				8F4D2DAF11054B8616FBD9FF /* Info.plist */,
 				CB738EC8D955B8C66D246ED0 /* App */,
 				635BBEE7B2888EEDA2FB0205 /* Components */,
 				21907B9BE06F6126E54216DE /* Models */,
@@ -202,10 +213,13 @@
 				61C3C5D511DA483D69B5999E /* CameraScannerView.swift in Sources */,
 				A09345909C5981149B394751 /* Card.swift in Sources */,
 				1B002DBCDB7D645CADA9C764 /* CardDetailView.swift in Sources */,
+				C8CB6C2528E6618A85A018EE /* CardExportService.swift in Sources */,
 				1C9375BE0C61FC3C8A476F3B /* CardPreview.swift in Sources */,
 				75CEBC921971ED2D835CF53A /* EditCardView.swift in Sources */,
 				B4DB7B02D919952B41EEA0AA /* HomeView.swift in Sources */,
 				2109F4634E8C9B02EA3B6A5A /* ImageScannerService.swift in Sources */,
+				45AD54526C90F35C160B1805 /* SettingsView.swift in Sources */,
+				AED583E72D45EEF100AFF292 /* UTType+Anycard.swift in Sources */,
 				105313AF96350F3D8CC26831 /* anycardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,9 +293,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = anycard/Info.plist;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
 				INFOPLIST_KEY_CFBundleDisplayName = anycard;
 				INFOPLIST_KEY_NSCameraUsageDescription = "anycard needs camera access to scan barcodes and QR codes from your existing loyalty cards.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "anycard needs photo library access to scan barcodes from images and add custom card images.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -304,9 +320,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = anycard/Info.plist;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
 				INFOPLIST_KEY_CFBundleDisplayName = anycard;
 				INFOPLIST_KEY_NSCameraUsageDescription = "anycard needs camera access to scan barcodes and QR codes from your existing loyalty cards.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "anycard needs photo library access to scan barcodes from images and add custom card images.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;

@@ -29,11 +29,29 @@ targets:
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
         INFOPLIST_KEY_CFBundleDisplayName: anycard
         INFOPLIST_KEY_NSCameraUsageDescription: "anycard needs camera access to scan barcodes and QR codes from your existing loyalty cards."
+        INFOPLIST_KEY_NSPhotoLibraryUsageDescription: "anycard needs photo library access to scan barcodes from images and add custom card images."
         GENERATE_INFOPLIST_FILE: true
         CURRENT_PROJECT_VERSION: 1
         MARKETING_VERSION: 1.0.0
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    info:
+      path: anycard/Info.plist
+      properties:
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: anycard Backup
+            CFBundleTypeRole: Editor
+            LSHandlerRank: Owner
+            LSItemContentTypes:
+              - com.emdzej.anycard.backup
+        UTExportedTypeDeclarations:
+          - UTTypeIdentifier: com.emdzej.anycard.backup
+            UTTypeDescription: anycard Backup File
+            UTTypeConformsTo:
+              - public.json
+            UTTypeTagSpecification:
+              public.filename-extension:
+                - anycard
 
 schemes:
   anycard:

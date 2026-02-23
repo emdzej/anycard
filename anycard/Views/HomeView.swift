@@ -6,6 +6,7 @@ struct HomeView: View {
     @Query(sort: \Card.updatedAt, order: .reverse) private var cards: [Card]
     
     @State private var showingAddCard = false
+    @State private var showingSettings = false
     
     private let columns = [
         GridItem(.flexible()),
@@ -23,6 +24,14 @@ struct HomeView: View {
             }
             .navigationTitle("My Cards")
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                    }
+                }
+                
                 ToolbarItem(placement: .primaryAction) {
                     Button {
                         showingAddCard = true
@@ -33,6 +42,9 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showingAddCard) {
                 AddCardView()
+            }
+            .sheet(isPresented: $showingSettings) {
+                SettingsView()
             }
         }
     }
