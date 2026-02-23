@@ -1,65 +1,65 @@
-# anycard — Specyfikacja
+# anycard — Specification
 
-## 1. Cel projektu
+## 1. Project Goal
 
-Aplikacja iOS umożliwiająca użytkownikowi dodanie dowolnej karty lojalnościowej do Apple Wallet bez potrzeby dedykowanej aplikacji sklepu.
+iOS app enabling users to add any loyalty card to Apple Wallet without needing the store's dedicated app.
 
-## 2. Wymagania funkcjonalne
+## 2. Functional Requirements
 
-### 2.1 Dodawanie karty
+### 2.1 Adding Cards
 
-| Funkcja | Opis |
-|---------|------|
-| Skanowanie | Użytkownik skanuje kod kreskowy/QR istniejącej karty kamerą |
-| Ręczne wprowadzanie | Alternatywnie wpisuje numer/kod ręcznie |
-| Nazwa karty | Użytkownik nadaje nazwę (np. "IKEA Family") |
-| Format kodu | Wybór: Code128, EAN13, QR Code, PDF417, Aztec |
+| Feature | Description |
+|---------|-------------|
+| Scanning | User scans existing card's barcode/QR with camera |
+| Manual entry | Alternatively enters number/code manually |
+| Card name | User assigns a name (e.g., "IKEA Family") |
+| Code format | Choice: Code128, EAN13, QR Code, PDF417, Aztec |
 
-### 2.2 Personalizacja
+### 2.2 Personalization
 
-| Funkcja | Opis |
-|---------|------|
-| Własna grafika | Upload obrazka jako tło/logo karty |
-| Kolory | Wybór kolorów tekstu i tła |
-| Podgląd | Live preview karty przed dodaniem |
+| Feature | Description |
+|---------|-------------|
+| Custom graphics | Upload image as card background/logo |
+| Colors | Choose text and background colors |
+| Preview | Live preview of card before adding |
 
-### 2.3 Zarządzanie kartami
+### 2.3 Card Management
 
-| Funkcja | Opis |
-|---------|------|
-| Lista kart | Widok wszystkich dodanych kart |
-| Edycja | Modyfikacja istniejącej karty |
-| Usuwanie | Usunięcie karty (z app i opcjonalnie z Wallet) |
-| Duplikowanie | Kopia karty z możliwością edycji |
+| Feature | Description |
+|---------|-------------|
+| Card list | View all added cards |
+| Edit | Modify existing card |
+| Delete | Remove card (from app and optionally from Wallet) |
+| Duplicate | Copy card with ability to edit |
 
 ### 2.4 Apple Wallet
 
-| Funkcja | Opis |
-|---------|------|
-| Dodawanie do Wallet | Generowanie PKPass i dodanie do Wallet |
-| Aktualizacja | Po edycji w app → aktualizacja w Wallet |
-| Usuwanie | Opcja usunięcia z Wallet |
+| Feature | Description |
+|---------|-------------|
+| Add to Wallet | Generate PKPass and add to Wallet |
+| Update | After editing in app → update in Wallet |
+| Remove | Option to remove from Wallet |
 
-## 3. Wymagania niefunkcjonalne
+## 3. Non-Functional Requirements
 
 ### 3.1 Offline-first
-- Wszystkie karty działają bez internetu
-- Dane przechowywane lokalnie (SwiftData)
-- Brak wymaganego backendu
+- All cards work without internet
+- Data stored locally (SwiftData)
+- No backend required
 
-### 3.2 Prywatność
-- Dane nie opuszczają urządzenia
-- Brak analityki/trackingu
-- Brak kont użytkowników
+### 3.2 Privacy
+- Data never leaves the device
+- No analytics/tracking
+- No user accounts
 
-### 3.3 Wydajność
-- Szybki start (<2s)
+### 3.3 Performance
+- Fast launch (<2s)
 - Instant camera scanning
-- Płynne animacje (60fps)
+- Smooth animations (60fps)
 
-## 4. Architektura
+## 4. Architecture
 
-### 4.1 Warstwy
+### 4.1 Layers
 
 ```
 ┌─────────────────────────────────────┐
@@ -78,16 +78,16 @@ Aplikacja iOS umożliwiająca użytkownikowi dodanie dowolnej karty lojalnościo
 └─────────────────────────────────────┘
 ```
 
-### 4.2 Kluczowe komponenty
+### 4.2 Key Components
 
-| Komponent | Odpowiedzialność |
-|-----------|------------------|
-| `ScannerService` | Skanowanie barcode/QR z kamery |
-| `PassGeneratorService` | Generowanie PKPass |
-| `StorageService` | Persystencja kart (SwiftData) |
-| `ImagePickerService` | Wybór grafiki z galerii |
+| Component | Responsibility |
+|-----------|----------------|
+| `ScannerService` | Barcode/QR scanning from camera |
+| `PassGeneratorService` | PKPass generation |
+| `StorageService` | Card persistence (SwiftData) |
+| `ImagePickerService` | Image selection from gallery |
 
-## 5. Model danych
+## 5. Data Model
 
 ### 5.1 Card
 
@@ -114,31 +114,31 @@ enum CodeType: String, Codable {
 }
 ```
 
-## 6. Ekrany (UI)
+## 6. Screens (UI)
 
-### 6.1 Lista kart (Home)
-- Grid/lista wszystkich kart
-- Floating action button → dodaj kartę
+### 6.1 Card List (Home)
+- Grid/list of all cards
+- Floating action button → add card
 - Swipe to delete
-- Tap → szczegóły/edycja
+- Tap → details/edit
 
-### 6.2 Dodawanie karty
-- Krok 1: Skanuj lub wpisz kod
-- Krok 2: Nazwa i typ kodu
-- Krok 3: Personalizacja (kolory, grafika)
-- Krok 4: Podgląd + "Dodaj do Wallet"
+### 6.2 Add Card
+- Step 1: Scan or enter code
+- Step 2: Name and code type
+- Step 3: Personalization (colors, graphics)
+- Step 4: Preview + "Add to Wallet"
 
-### 6.3 Skaner
+### 6.3 Scanner
 - Fullscreen camera view
-- Overlay z ramką
+- Overlay with frame
 - Auto-detect barcode type
-- Latarka toggle
+- Flashlight toggle
 
-### 6.4 Edycja karty
-- Formularz z live preview
-- Image picker dla grafiki
+### 6.4 Edit Card
+- Form with live preview
+- Image picker for graphics
 - Color pickers
-- "Zapisz" / "Usuń"
+- "Save" / "Delete"
 
 ## 7. PassKit Integration
 
@@ -183,7 +183,7 @@ card.pkpass/
 }
 ```
 
-### 7.3 Wymagania Apple
+### 7.3 Apple Requirements
 
 | Requirement | Status |
 |-------------|--------|
@@ -192,29 +192,29 @@ card.pkpass/
 | Signing Certificate | Required for PKPass |
 | Team ID | From Dev Portal |
 
-## 8. Fazy rozwoju
+## 8. Development Phases
 
 ### Phase 1: MVP
-- [ ] Podstawowy UI (lista + dodawanie)
-- [ ] Ręczne wprowadzanie kodu
-- [ ] Generowanie PKPass (Code128 + QR)
-- [ ] Dodawanie do Wallet
-- [ ] Lokalne przechowywanie
+- [ ] Basic UI (list + adding)
+- [ ] Manual code entry
+- [ ] PKPass generation (Code128 + QR)
+- [ ] Add to Wallet
+- [ ] Local storage
 
 ### Phase 2: Scanning
-- [ ] Skanowanie barcode kamerą
+- [ ] Barcode scanning with camera
 - [ ] Auto-detect code type
-- [ ] Skanowanie QR
+- [ ] QR scanning
 
 ### Phase 3: Personalization
 - [ ] Custom colors
-- [ ] Upload własnej grafiki
+- [ ] Upload custom graphics
 - [ ] Live preview
 
 ### Phase 4: Polish
-- [ ] Edycja istniejących kart
+- [ ] Edit existing cards
 - [ ] Haptic feedback
-- [ ] Animacje
+- [ ] Animations
 - [ ] App icon + splash
 
 ### Future (maybe)
@@ -223,7 +223,7 @@ card.pkpass/
 - [ ] Apple Watch companion
 - [ ] Share cards
 
-## 9. Wymagania systemowe
+## 9. System Requirements
 
 - iOS 17.0+
 - iPhone only (no iPad initially)
@@ -231,11 +231,11 @@ card.pkpass/
 
 ## 10. Open Questions
 
-1. **Pass Type ID** — czy masz Apple Developer Account? Potrzebny do podpisywania passes.
+1. **Pass Type ID** — Do you have Apple Developer Account? Required for signing passes.
 
-2. **App Icon** — design?
+2. **App Icon** — Design?
 
-3. **Nazwa w App Store** — "anycard"? Może być zajęte.
+3. **App Store name** — "anycard"? May be taken.
 
 ## 11. Development Setup
 
