@@ -11,6 +11,9 @@
 		14700D5B088DA519E44A5336 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BFEB9641C37E582CD540E03 /* Assets.xcassets */; };
 		1B002DBCDB7D645CADA9C764 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9293081E7830355E352AC /* CardDetailView.swift */; };
 		1C9375BE0C61FC3C8A476F3B /* CardPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C945AB3F7095DB5C397AFE1 /* CardPreview.swift */; };
+		2109F4634E8C9B02EA3B6A5A /* ImageScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69969AEFCBACE0FBA86C81A5 /* ImageScannerService.swift */; };
+		4B03F606C4C92F80C0D11616 /* CameraScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8FF35EEEF50F7C39126EF2 /* CameraScannerService.swift */; };
+		61C3C5D511DA483D69B5999E /* CameraScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31D6E41DA536E243349DEF /* CameraScannerView.swift */; };
 		7C77BCFEFCA7C0DB8BBB6521 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DBD83C855D26918D3DD48 /* AddCardView.swift */; };
 		A09345909C5981149B394751 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E60C1687C4240A7DAB41C38 /* Card.swift */; };
 		AB6A95AABDBE8DA99FC54F47 /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF33EE2A18362B326956C37 /* BarcodeView.swift */; };
@@ -19,12 +22,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C8FF35EEEF50F7C39126EF2 /* CameraScannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScannerService.swift; sourceTree = "<group>"; };
 		27B97C74B90A896608E1D043 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2C31D6E41DA536E243349DEF /* CameraScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScannerView.swift; sourceTree = "<group>"; };
 		32C9293081E7830355E352AC /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		4C945AB3F7095DB5C397AFE1 /* CardPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreview.swift; sourceTree = "<group>"; };
 		569E58F670A681CEB5E12AB6 /* anycard.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = anycard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFEB9641C37E582CD540E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E60C1687C4240A7DAB41C38 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		69969AEFCBACE0FBA86C81A5 /* ImageScannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScannerService.swift; sourceTree = "<group>"; };
 		9BF33EE2A18362B326956C37 /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
 		9E4453A82CF5A2471AB5CFDB /* BarcodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeGenerator.swift; sourceTree = "<group>"; };
 		9F69C703BEF4A2D5BD2FD945 /* anycardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = anycardApp.swift; sourceTree = "<group>"; };
@@ -52,6 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				9E4453A82CF5A2471AB5CFDB /* BarcodeGenerator.swift */,
+				1C8FF35EEEF50F7C39126EF2 /* CameraScannerService.swift */,
+				69969AEFCBACE0FBA86C81A5 /* ImageScannerService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -60,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				A00DBD83C855D26918D3DD48 /* AddCardView.swift */,
+				2C31D6E41DA536E243349DEF /* CameraScannerView.swift */,
 				32C9293081E7830355E352AC /* CardDetailView.swift */,
 				27B97C74B90A896608E1D043 /* HomeView.swift */,
 			);
@@ -186,10 +195,13 @@
 				7C77BCFEFCA7C0DB8BBB6521 /* AddCardView.swift in Sources */,
 				B305F13D671CB3100DB27837 /* BarcodeGenerator.swift in Sources */,
 				AB6A95AABDBE8DA99FC54F47 /* BarcodeView.swift in Sources */,
+				4B03F606C4C92F80C0D11616 /* CameraScannerService.swift in Sources */,
+				61C3C5D511DA483D69B5999E /* CameraScannerView.swift in Sources */,
 				A09345909C5981149B394751 /* Card.swift in Sources */,
 				1B002DBCDB7D645CADA9C764 /* CardDetailView.swift in Sources */,
 				1C9375BE0C61FC3C8A476F3B /* CardPreview.swift in Sources */,
 				B4DB7B02D919952B41EEA0AA /* HomeView.swift in Sources */,
+				2109F4634E8C9B02EA3B6A5A /* ImageScannerService.swift in Sources */,
 				105313AF96350F3D8CC26831 /* anycardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
