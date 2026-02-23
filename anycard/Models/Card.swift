@@ -1,5 +1,6 @@
 import Foundation
 import SwiftData
+import UIKit
 
 /// Supported barcode/QR code types
 enum CodeType: String, Codable, CaseIterable, Identifiable {
