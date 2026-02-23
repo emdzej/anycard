@@ -3,7 +3,7 @@ import CoreImage
 import CoreImage.CIFilterBuiltins
 
 /// Service for generating barcode/QR code images
-final class BarcodeGenerator {
+final class BarcodeGenerator: @unchecked Sendable {
     static let shared = BarcodeGenerator()
     
     private let context = CIContext()
