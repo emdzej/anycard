@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09EF1D907C0880FA7A9CE36A /* CodeTypeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF575C09FF0C6BEBDAB0BAA /* CodeTypeInfoView.swift */; };
 		105313AF96350F3D8CC26831 /* anycardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F69C703BEF4A2D5BD2FD945 /* anycardApp.swift */; };
 		14700D5B088DA519E44A5336 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BFEB9641C37E582CD540E03 /* Assets.xcassets */; };
 		1B002DBCDB7D645CADA9C764 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9293081E7830355E352AC /* CardDetailView.swift */; };
@@ -43,6 +44,7 @@
 		9E4453A82CF5A2471AB5CFDB /* BarcodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeGenerator.swift; sourceTree = "<group>"; };
 		9F69C703BEF4A2D5BD2FD945 /* anycardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = anycardApp.swift; sourceTree = "<group>"; };
 		A00DBD83C855D26918D3DD48 /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
+		AEF575C09FF0C6BEBDAB0BAA /* CodeTypeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTypeInfoView.swift; sourceTree = "<group>"; };
 		D18825B700010118FECA8F12 /* UTType+Anycard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType+Anycard.swift"; sourceTree = "<group>"; };
 		DBBD8FB26D9715AA4CE709F4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F36BB7E3B0AB71EFC448F1B8 /* CardExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExportService.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				A00DBD83C855D26918D3DD48 /* AddCardView.swift */,
 				2C31D6E41DA536E243349DEF /* CameraScannerView.swift */,
 				32C9293081E7830355E352AC /* CardDetailView.swift */,
+				AEF575C09FF0C6BEBDAB0BAA /* CodeTypeInfoView.swift */,
 				90461DCED8A9AD5142D99ABB /* EditCardView.swift */,
 				3DDD7107C80505562BBF0A7D /* FullscreenScanView.swift */,
 				27B97C74B90A896608E1D043 /* HomeView.swift */,
@@ -218,6 +221,7 @@
 				1B002DBCDB7D645CADA9C764 /* CardDetailView.swift in Sources */,
 				C8CB6C2528E6618A85A018EE /* CardExportService.swift in Sources */,
 				1C9375BE0C61FC3C8A476F3B /* CardPreview.swift in Sources */,
+				09EF1D907C0880FA7A9CE36A /* CodeTypeInfoView.swift in Sources */,
 				75CEBC921971ED2D835CF53A /* EditCardView.swift in Sources */,
 				89AF1103113A31502FEAE775 /* FullscreenScanView.swift in Sources */,
 				B4DB7B02D919952B41EEA0AA /* HomeView.swift in Sources */,

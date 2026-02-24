@@ -16,6 +16,7 @@ struct EditCardView: View {
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var customImage: Data?
     @State private var isProcessingImage = false
+    @State private var showCodeTypeInfo = false
     
     init(card: Card) {
         self.card = card
@@ -65,10 +66,20 @@ struct EditCardView: View {
                         .textContentType(.creditCardNumber)
                         .keyboardType(.asciiCapable)
                     
-                    Picker("Code Type", selection: $codeType) {
-                        ForEach(CodeType.allCases) { type in
-                            Text(type.rawValue).tag(type)
+                    HStack {
+                        Picker("Code Type", selection: $codeType) {
+                            ForEach(CodeType.allCases) { type in
+                                Text(type.rawValue).tag(type)
+                            }
                         }
+                        
+                        Button {
+                            showCodeTypeInfo = true
+                        } label: {
+                            Image(systemName: "info.circle")
+                                .foregroundStyle(.secondary)
+                        }
+                        .buttonStyle(.plain)
                     }
                     
                     Toggle("Show as barcode", isOn: Binding(
@@ -157,6 +168,9 @@ struct EditCardView: View {
                 if let item = newValue {
                     processSelectedPhoto(item)
                 }
+            }
+            .sheet(isPresented: $showCodeTypeInfo) {
+                CodeTypeInfoView()
             }
         }
     }
