@@ -3,11 +3,13 @@ import Foundation
 /// Export format for anycard cards
 struct CardExport: Codable {
     let version: Int
+    let appVersion: String
     let exportedAt: Date
     let cards: [CardData]
     
     init(cards: [Card]) {
         self.version = 1
+        self.appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
         self.exportedAt = Date()
         self.cards = cards.map { CardData(from: $0) }
     }
