@@ -102,7 +102,7 @@ struct HomeView: View {
                             .shadow(color: .black.opacity(0.15), radius: 8, y: 4)
                     }
                     .buttonStyle(.plain)
-                    .zIndex(Double(cards.count - index))  // Top cards have higher z-index
+                    .zIndex(Double(index))  // Last cards have higher z-index (names visible)
                     .contextMenu {
                         Button(role: .destructive) {
                             deleteCard(card)
