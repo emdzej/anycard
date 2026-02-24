@@ -72,9 +72,18 @@ struct EditCardView: View {
                     ))
                     
                     if displayMode == .barcode {
+                        let availableTypes = {
+                            var types = CodeType.compatibleTypes(for: code)
+                            // Always include current type to avoid Picker warning
+                            if !types.contains(codeType) {
+                                types.append(codeType)
+                            }
+                            return types
+                        }()
+                        
                         HStack {
                             Picker("Code Type", selection: $codeType) {
-                                ForEach(CodeType.compatibleTypes(for: code)) { type in
+                                ForEach(availableTypes) { type in
                                     Text(type.rawValue).tag(type)
                                 }
                             }
