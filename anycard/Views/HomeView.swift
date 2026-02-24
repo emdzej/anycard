@@ -5,6 +5,8 @@ struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Card.updatedAt, order: .reverse) private var cards: [Card]
     
+    @AppStorage("cardLayout") private var cardLayout: CardLayout = .grid
+    
     @State private var showingAddCard = false
     @State private var showingSettings = false
     
@@ -19,7 +21,12 @@ struct HomeView: View {
                 if cards.isEmpty {
                     emptyState
                 } else {
-                    cardGrid
+                    switch cardLayout {
+                    case .grid:
+                        cardGrid
+                    case .stack:
+                        cardStack
+                    }
                 }
             }
             .navigationTitle("My Cards")
@@ -86,6 +93,33 @@ struct HomeView: View {
         }
     }
     
+    private var cardStack: some View {
+        ScrollView {
+            LazyVStack(spacing: -60) {  // Negative spacing for overlap
+                ForEach(Array(cards.enumerated()), id: \.element.id) { index, card in
+                    NavigationLink(value: card) {
+                        CardPreview(card: card, size: .medium)
+                            .shadow(color: .black.opacity(0.15), radius: 8, y: 4)
+                    }
+                    .buttonStyle(.plain)
+                    .zIndex(Double(cards.count - index))  // Top cards have higher z-index
+                    .contextMenu {
+                        Button(role: .destructive) {
+                            deleteCard(card)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
+                }
+            }
+            .padding()
+            .padding(.bottom, 80)  // Extra padding at bottom for last card
+        }
+        .navigationDestination(for: Card.self) { card in
+            CardDetailView(card: card)
+        }
+    }
+    
     private func deleteCard(_ card: Card) {
         withAnimation {
             modelContext.delete(card)
@@ -93,7 +127,15 @@ struct HomeView: View {
     }
 }
 
-#Preview {
+#Preview("Grid") {
     HomeView()
         .modelContainer(for: Card.self, inMemory: true)
+}
+
+#Preview("Stack") {
+    HomeView()
+        .modelContainer(for: Card.self, inMemory: true)
+        .onAppear {
+            UserDefaults.standard.set("Stack", forKey: "cardLayout")
+        }
 }

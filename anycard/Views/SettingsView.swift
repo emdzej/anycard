@@ -2,9 +2,26 @@ import SwiftUI
 import SwiftData
 import UniformTypeIdentifiers
 
+/// Card layout style on home screen
+enum CardLayout: String, CaseIterable, Identifiable, RawRepresentable {
+    case grid = "Grid"
+    case stack = "Stack"
+    
+    var id: String { rawValue }
+    
+    var icon: String {
+        switch self {
+        case .grid: return "square.grid.2x2"
+        case .stack: return "rectangle.stack"
+        }
+    }
+}
+
 struct SettingsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var cards: [Card]
+    
+    @AppStorage("cardLayout") private var cardLayout: CardLayout = .grid
     
     @State private var showExporter = false
     @State private var showImporter = false
@@ -19,6 +36,19 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
+                Section {
+                    Picker("Card Layout", selection: $cardLayout) {
+                        ForEach(CardLayout.allCases) { layout in
+                            Label(layout.rawValue, systemImage: layout.icon)
+                                .tag(layout)
+                        }
+                    }
+                } header: {
+                    Text("Appearance")
+                } footer: {
+                    Text("Grid shows cards in a 2-column layout. Stack shows cards overlapping like Apple Wallet.")
+                }
+                
                 Section {
                     Button {
                         exportAllCards()
