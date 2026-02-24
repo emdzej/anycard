@@ -39,35 +39,35 @@ struct AddCardView: View {
                     Button {
                         showCameraScanner = true
                     } label: {
-                        Label("Scan with Camera", systemImage: "camera.fill")
+                        Label(String(localized: "scan.camera"), systemImage: "camera.fill")
                     }
                     
                     PhotosPicker(selection: $selectedPhoto, matching: .images) {
-                        Label("Scan from Image", systemImage: "photo.fill")
+                        Label(String(localized: "scan.image"), systemImage: "photo.fill")
                     }
                     .disabled(isProcessingImage)
                     
                     if isProcessingImage {
                         HStack {
                             ProgressView()
-                            Text("Processing image...")
+                            Text(String(localized: "scan.processing"))
                                 .foregroundStyle(.secondary)
                         }
                     }
                 } header: {
-                    Text("Scan Barcode")
+                    Text(String(localized: "section.scan"))
                 }
                 
                 // Manual entry section
-                Section("Card Details") {
-                    TextField("Card Name", text: $name)
+                Section(String(localized: "section.details")) {
+                    TextField(String(localized: "card.name"), text: $name)
                         .textContentType(.organizationName)
                     
-                    TextField("Card number", text: $code)
+                    TextField(String(localized: "card.number"), text: $code)
                         .textContentType(.creditCardNumber)
                         .keyboardType(.asciiCapable)
                     
-                    Toggle("Show scan code", isOn: Binding(
+                    Toggle(String(localized: "card.showScanCode"), isOn: Binding(
                         get: { displayMode == .barcode },
                         set: { displayMode = $0 ? .barcode : .text }
                     ))
@@ -83,7 +83,7 @@ struct AddCardView: View {
                         }()
                         
                         HStack {
-                            Picker("Code Type", selection: $codeType) {
+                            Picker(String(localized: "card.codeType"), selection: $codeType) {
                                 ForEach(availableTypes) { type in
                                     Text(type.rawValue).tag(type)
                                 }
@@ -109,15 +109,15 @@ struct AddCardView: View {
                 }
                 
                 // Notes section
-                Section("Notes") {
-                    TextField("Optional notes", text: $notes, axis: .vertical)
+                Section(String(localized: "card.notes")) {
+                    TextField(String(localized: "card.notes.placeholder"), text: $notes, axis: .vertical)
                         .lineLimit(3...6)
                 }
                 
                 // Colors section
-                Section("Colors") {
-                    ColorPicker("Background", selection: $backgroundColor, supportsOpacity: false)
-                    ColorPicker("Text", selection: $textColor, supportsOpacity: false)
+                Section(String(localized: "section.colors")) {
+                    ColorPicker(String(localized: "color.background"), selection: $backgroundColor, supportsOpacity: false)
+                    ColorPicker(String(localized: "color.text"), selection: $textColor, supportsOpacity: false)
                     
                     // Preset themes
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -135,7 +135,7 @@ struct AddCardView: View {
                 }
                 
                 // Custom image section
-                Section("Custom Image") {
+                Section(String(localized: "section.customImage")) {
                     if let imageData = customImage, let uiImage = UIImage(data: imageData) {
                         HStack {
                             Image(uiImage: uiImage)
@@ -149,27 +149,27 @@ struct AddCardView: View {
                             Button(role: .destructive) {
                                 customImage = nil
                             } label: {
-                                Label("Remove", systemImage: "trash")
+                                Label(String(localized: "image.remove"), systemImage: "trash")
                             }
                         }
                     }
                     
                     PhotosPicker(selection: $selectedImagePhoto, matching: .images) {
-                        Label(customImage == nil ? "Add Image" : "Change Image", systemImage: "photo")
+                        Label(customImage == nil ? String(localized: "image.add") : String(localized: "image.change"), systemImage: "photo")
                     }
                     .disabled(isProcessingCustomImage)
                     
                     if isProcessingCustomImage {
                         HStack {
                             ProgressView()
-                            Text("Processing...")
+                            Text(String(localized: "scan.processing"))
                                 .foregroundStyle(.secondary)
                         }
                     }
                 }
                 
                 // Preview section
-                Section("Preview") {
+                Section(String(localized: "section.preview")) {
                     if isValid {
                         CardPreview(
                             card: Card(
@@ -187,23 +187,23 @@ struct AddCardView: View {
                         .listRowInsets(EdgeInsets())
                         .listRowBackground(Color.clear)
                     } else {
-                        Text("Enter card details to see preview")
+                        Text(String(localized: "preview.empty"))
                             .foregroundStyle(.secondary)
                             .frame(maxWidth: .infinity)
                     }
                 }
             }
-            .navigationTitle("Add Card")
+            .navigationTitle(String(localized: "card.add.title"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
+                    Button(String(localized: "button.cancel")) {
                         dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
+                    Button(String(localized: "button.save")) {
                         saveCard()
                     }
                     .disabled(!isValid)
@@ -225,8 +225,8 @@ struct AddCardView: View {
                     processCustomImage(item)
                 }
             }
-            .alert("Scan Error", isPresented: $showScanError) {
-                Button("OK", role: .cancel) {}
+            .alert(String(localized: "error.scan"), isPresented: $showScanError) {
+                Button(String(localized: "button.ok"), role: .cancel) {}
             } message: {
                 Text(scanError ?? "Unknown error")
             }

@@ -8,6 +8,13 @@ enum DisplayMode: String, Codable, CaseIterable, Identifiable {
     case text = "Text only"
     
     var id: String { rawValue }
+    
+    var localizedName: String {
+        switch self {
+        case .barcode: return String(localized: "displayMode.barcode")
+        case .text: return String(localized: "displayMode.text")
+        }
+    }
 }
 
 /// Supported barcode/QR code types

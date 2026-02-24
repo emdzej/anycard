@@ -15,7 +15,7 @@ struct BarcodeView: View {
             RoundedRectangle(cornerRadius: 4)
                 .fill(Color.gray.opacity(0.3))
                 .overlay {
-                    Text("Invalid code")
+                    Text(String(localized: "barcode.invalid"))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }

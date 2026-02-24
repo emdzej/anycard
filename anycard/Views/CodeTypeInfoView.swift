@@ -10,67 +10,67 @@ struct CodeTypeInfoView: View {
                     CodeTypeRow(
                         name: "Code 128",
                         icon: "barcode",
-                        description: "Most versatile 1D barcode. Supports letters, numbers, and symbols.",
-                        usage: "General purpose, shipping labels, inventory"
+                        description: String(localized: "codeType.code128.desc"),
+                        usage: String(localized: "codeType.code128.usage")
                     )
                     
                     CodeTypeRow(
                         name: "EAN-13",
                         icon: "barcode",
-                        description: "13-digit barcode standard used worldwide for retail products.",
-                        usage: "European retail, product packaging, loyalty cards"
+                        description: String(localized: "codeType.ean13.desc"),
+                        usage: String(localized: "codeType.ean13.usage")
                     )
                 } header: {
-                    Text("1D Barcodes")
+                    Text(String(localized: "codeType.1d"))
                 } footer: {
-                    Text("Linear barcodes that encode data in varying widths of lines.")
+                    Text(String(localized: "codeType.1d.footer"))
                 }
                 
                 Section {
                     CodeTypeRow(
                         name: "QR Code",
                         icon: "qrcode",
-                        description: "Square 2D code that can store large amounts of data. Very fast to scan.",
-                        usage: "Mobile apps, websites, digital loyalty cards, payments"
+                        description: String(localized: "codeType.qr.desc"),
+                        usage: String(localized: "codeType.qr.usage")
                     )
                     
                     CodeTypeRow(
                         name: "PDF417",
                         icon: "rectangle.split.3x3",
-                        description: "Stacked 2D barcode that can encode large data. Used in official documents.",
-                        usage: "ID cards, driver's licenses, boarding passes"
+                        description: String(localized: "codeType.pdf417.desc"),
+                        usage: String(localized: "codeType.pdf417.usage")
                     )
                     
                     CodeTypeRow(
                         name: "Aztec",
                         icon: "square.grid.3x3.middle.filled",
-                        description: "Compact 2D code that works well even when printed small or damaged.",
-                        usage: "Transport tickets, airline boarding passes"
+                        description: String(localized: "codeType.aztec.desc"),
+                        usage: String(localized: "codeType.aztec.usage")
                     )
                 } header: {
-                    Text("2D Codes")
+                    Text(String(localized: "codeType.2d"))
                 } footer: {
-                    Text("Two-dimensional codes that store more data and are easier to scan.")
+                    Text(String(localized: "codeType.2d.footer"))
                 }
                 
                 Section {
                     VStack(alignment: .leading, spacing: 8) {
-                        Label("Tip", systemImage: "lightbulb.fill")
+                        Label(String(localized: "codeType.tip.title"), systemImage: "lightbulb.fill")
                             .font(.headline)
                             .foregroundStyle(.yellow)
                         
-                        Text("If you're unsure which type to use, scan your existing card with the camera — the app will detect the correct type automatically.")
+                        Text(String(localized: "codeType.tip.text"))
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
                     .padding(.vertical, 4)
                 }
             }
-            .navigationTitle("Code Types")
+            .navigationTitle(String(localized: "codeType.info.title"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
+                    Button(String(localized: "button.done")) {
                         dismiss()
                     }
                 }
@@ -102,7 +102,7 @@ struct CodeTypeRow: View {
                 .foregroundStyle(.secondary)
             
             HStack(spacing: 4) {
-                Text("Common uses:")
+                Text(String(localized: "codeType.common"))
                     .font(.caption)
                     .fontWeight(.medium)
                 Text(usage)

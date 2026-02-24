@@ -21,7 +21,7 @@ struct FullscreenScanView: View {
                 Spacer()
                 
                 // Hint
-                Text("Tap anywhere to close")
+                Text(String(localized: "fullscreen.dismiss"))
                     .font(.subheadline)
                     .foregroundStyle(.white.opacity(0.6))
                     .padding(.bottom, 40)

@@ -58,15 +58,15 @@ struct EditCardView: View {
                 }
                 
                 // Card details
-                Section("Card Details") {
-                    TextField("Card Name", text: $name)
+                Section(String(localized: "section.details")) {
+                    TextField(String(localized: "card.name"), text: $name)
                         .textContentType(.organizationName)
                     
-                    TextField("Card number", text: $code)
+                    TextField(String(localized: "card.number"), text: $code)
                         .textContentType(.creditCardNumber)
                         .keyboardType(.asciiCapable)
                     
-                    Toggle("Show scan code", isOn: Binding(
+                    Toggle(String(localized: "card.showScanCode"), isOn: Binding(
                         get: { displayMode == .barcode },
                         set: { displayMode = $0 ? .barcode : .text }
                     ))
@@ -82,7 +82,7 @@ struct EditCardView: View {
                         }()
                         
                         HStack {
-                            Picker("Code Type", selection: $codeType) {
+                            Picker(String(localized: "card.codeType"), selection: $codeType) {
                                 ForEach(availableTypes) { type in
                                     Text(type.rawValue).tag(type)
                                 }
@@ -108,15 +108,15 @@ struct EditCardView: View {
                 }
                 
                 // Notes section
-                Section("Notes") {
-                    TextField("Optional notes", text: $notes, axis: .vertical)
+                Section(String(localized: "card.notes")) {
+                    TextField(String(localized: "card.notes.placeholder"), text: $notes, axis: .vertical)
                         .lineLimit(3...6)
                 }
                 
                 // Colors
-                Section("Colors") {
-                    ColorPicker("Background", selection: $backgroundColor, supportsOpacity: false)
-                    ColorPicker("Text", selection: $textColor, supportsOpacity: false)
+                Section(String(localized: "section.colors")) {
+                    ColorPicker(String(localized: "color.background"), selection: $backgroundColor, supportsOpacity: false)
+                    ColorPicker(String(localized: "color.text"), selection: $textColor, supportsOpacity: false)
                     
                     // Preset themes
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -134,7 +134,7 @@ struct EditCardView: View {
                 }
                 
                 // Custom image
-                Section("Custom Image") {
+                Section(String(localized: "section.customImage")) {
                     if let imageData = customImage, let uiImage = UIImage(data: imageData) {
                         HStack {
                             Image(uiImage: uiImage)
@@ -148,36 +148,36 @@ struct EditCardView: View {
                             Button(role: .destructive) {
                                 customImage = nil
                             } label: {
-                                Label("Remove", systemImage: "trash")
+                                Label(String(localized: "image.remove"), systemImage: "trash")
                             }
                         }
                     }
                     
                     PhotosPicker(selection: $selectedPhoto, matching: .images) {
-                        Label(customImage == nil ? "Add Image" : "Change Image", systemImage: "photo")
+                        Label(customImage == nil ? String(localized: "image.add") : String(localized: "image.change"), systemImage: "photo")
                     }
                     .disabled(isProcessingImage)
                     
                     if isProcessingImage {
                         HStack {
                             ProgressView()
-                            Text("Processing...")
+                            Text(String(localized: "scan.processing"))
                                 .foregroundStyle(.secondary)
                         }
                     }
                 }
             }
-            .navigationTitle("Edit Card")
+            .navigationTitle(String(localized: "card.edit.title"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
+                    Button(String(localized: "button.cancel")) {
                         dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
+                    Button(String(localized: "button.save")) {
                         saveChanges()
                     }
                     .disabled(!isValid)
@@ -248,6 +248,17 @@ enum ColorTheme: String, CaseIterable, Identifiable {
     
     var id: String { rawValue }
     
+    var localizedName: String {
+        switch self {
+        case .dark: return String(localized: "theme.dark")
+        case .light: return String(localized: "theme.light")
+        case .blue: return String(localized: "theme.blue")
+        case .green: return String(localized: "theme.green")
+        case .purple: return String(localized: "theme.purple")
+        case .orange: return String(localized: "theme.orange")
+        }
+    }
+    
     var background: Color {
         switch self {
         case .dark: return Color(hex: "#1C1C1E")
@@ -281,7 +292,7 @@ struct ThemeButton: View {
                         Circle()
                             .strokeBorder(.secondary.opacity(0.3), lineWidth: 1)
                     }
-                Text(theme.rawValue)
+                Text(theme.localizedName)
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }

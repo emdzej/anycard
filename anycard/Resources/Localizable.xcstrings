@@ -1,0 +1,601 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "home.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "My Cards" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Moje karty" } }
+      }
+    },
+    "home.empty.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No Cards" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Brak kart" } }
+      }
+    },
+    "home.empty.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add your first loyalty card to get started." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Dodaj swoją pierwszą kartę lojalnościową." } }
+      }
+    },
+    "home.empty.button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Card" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Dodaj kartę" } }
+      }
+    },
+    "card.add.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Card" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Dodaj kartę" } }
+      }
+    },
+    "card.edit.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit Card" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Edytuj kartę" } }
+      }
+    },
+    "card.detail.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Card Details" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Szczegóły karty" } }
+      }
+    },
+    "card.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Card Name" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Nazwa karty" } }
+      }
+    },
+    "card.number" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Card number" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Numer karty" } }
+      }
+    },
+    "card.codeType" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Code Type" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Typ kodu" } }
+      }
+    },
+    "card.showScanCode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Show scan code" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Pokaż kod do skanowania" } }
+      }
+    },
+    "card.notes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Notes" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Notatki" } }
+      }
+    },
+    "card.notes.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Optional notes" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Opcjonalne notatki" } }
+      }
+    },
+    "section.scan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Scan Barcode" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Skanuj kod" } }
+      }
+    },
+    "section.details" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Card Details" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Szczegóły karty" } }
+      }
+    },
+    "section.colors" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Colors" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Kolory" } }
+      }
+    },
+    "section.customImage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Custom Image" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Własny obrazek" } }
+      }
+    },
+    "section.preview" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Preview" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Podgląd" } }
+      }
+    },
+    "scan.camera" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Scan with Camera" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Skanuj aparatem" } }
+      }
+    },
+    "scan.image" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Scan from Image" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Skanuj ze zdjęcia" } }
+      }
+    },
+    "scan.processing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Processing image..." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Przetwarzanie..." } }
+      }
+    },
+    "color.background" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Background" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Tło" } }
+      }
+    },
+    "color.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Text" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Tekst" } }
+      }
+    },
+    "image.add" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Image" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Dodaj obrazek" } }
+      }
+    },
+    "image.change" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Change Image" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Zmień obrazek" } }
+      }
+    },
+    "image.remove" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Remove" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Usuń" } }
+      }
+    },
+    "preview.empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enter card details to see preview" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Wprowadź dane karty, aby zobaczyć podgląd" } }
+      }
+    },
+    "button.save" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Zapisz" } }
+      }
+    },
+    "button.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Anuluj" } }
+      }
+    },
+    "button.edit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Edytuj" } }
+      }
+    },
+    "button.delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Usuń" } }
+      }
+    },
+    "button.done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Done" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Gotowe" } }
+      }
+    },
+    "button.ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "OK" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "OK" } }
+      }
+    },
+    "settings.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Ustawienia" } }
+      }
+    },
+    "settings.appearance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Appearance" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Wygląd" } }
+      }
+    },
+    "settings.cardLayout" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Card Layout" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Układ kart" } }
+      }
+    },
+    "settings.cardLayout.footer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Grid shows cards in a 2-column layout. Stack shows cards overlapping like Apple Wallet." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Siatka pokazuje karty w 2 kolumnach. Stos pokazuje karty nachodzące na siebie jak w Apple Wallet." } }
+      }
+    },
+    "settings.backup" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Backup & Restore" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Kopia zapasowa" } }
+      }
+    },
+    "settings.export" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Export All Cards" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Eksportuj karty" } }
+      }
+    },
+    "settings.import" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Import Cards" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Importuj karty" } }
+      }
+    },
+    "settings.backup.footer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Export creates a .anycard file you can use to backup or transfer your cards." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Eksport tworzy plik .anycard, który możesz użyć do backupu lub przeniesienia kart." } }
+      }
+    },
+    "settings.info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Info" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Informacje" } }
+      }
+    },
+    "settings.cards" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cards" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Karty" } }
+      }
+    },
+    "settings.version" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Version" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Wersja" } }
+      }
+    },
+    "layout.grid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Grid" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Siatka" } }
+      }
+    },
+    "layout.stack" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Stack" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Stos" } }
+      }
+    },
+    "import.complete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Import Complete" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Import zakończony" } }
+      }
+    },
+    "import.result" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Imported %d cards." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Zaimportowano %d kart." } }
+      }
+    },
+    "import.skipped" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : " Skipped %d duplicates." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : " Pominięto %d duplikatów." } }
+      }
+    },
+    "error.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Error" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Błąd" } }
+      }
+    },
+    "error.scan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Scan Error" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Błąd skanowania" } }
+      }
+    },
+    "error.fileAccess" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cannot access file" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Brak dostępu do pliku" } }
+      }
+    },
+    "wallet.add" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add to Apple Wallet" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Dodaj do Apple Wallet" } }
+      }
+    },
+    "wallet.notice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Apple Wallet integration requires Apple Developer Program membership." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Integracja z Apple Wallet wymaga członkostwa w Apple Developer Program." } }
+      }
+    },
+    "detail.added" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Added" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Dodano" } }
+      }
+    },
+    "detail.modified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Modified" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Zmodyfikowano" } }
+      }
+    },
+    "detail.displayMode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Display mode" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Tryb wyświetlania" } }
+      }
+    },
+    "fullscreen.dismiss" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap anywhere to close" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Dotknij aby zamknąć" } }
+      }
+    },
+    "barcode.invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Invalid code" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Nieprawidłowy kod" } }
+      }
+    },
+    "codeType.info.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Code Types" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Typy kodów" } }
+      }
+    },
+    "codeType.1d" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "1D Barcodes" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Kody 1D" } }
+      }
+    },
+    "codeType.1d.footer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Linear barcodes that encode data in varying widths of lines." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Kody liniowe kodujące dane w różnych szerokościach linii." } }
+      }
+    },
+    "codeType.2d" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "2D Codes" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Kody 2D" } }
+      }
+    },
+    "codeType.2d.footer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Two-dimensional codes that store more data and are easier to scan." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Dwuwymiarowe kody przechowujące więcej danych i łatwiejsze do skanowania." } }
+      }
+    },
+    "codeType.tip.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tip" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Wskazówka" } }
+      }
+    },
+    "codeType.tip.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "If you're unsure which type to use, scan your existing card with the camera — the app will detect the correct type automatically." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Jeśli nie wiesz, jaki typ wybrać, zeskanuj kartę aparatem — aplikacja automatycznie wykryje odpowiedni typ." } }
+      }
+    },
+    "codeType.code128.desc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Most versatile 1D barcode. Supports letters, numbers, and symbols." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Najbardziej uniwersalny kod 1D. Obsługuje litery, cyfry i symbole." } }
+      }
+    },
+    "codeType.code128.usage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "General purpose, shipping labels, inventory" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Ogólne zastosowanie, etykiety, inwentaryzacja" } }
+      }
+    },
+    "codeType.ean13.desc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "13-digit barcode standard used worldwide for retail products." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "13-cyfrowy standard kodów kreskowych używany na całym świecie." } }
+      }
+    },
+    "codeType.ean13.usage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "European retail, product packaging, loyalty cards" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Handel detaliczny, opakowania, karty lojalnościowe" } }
+      }
+    },
+    "codeType.qr.desc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Square 2D code that can store large amounts of data. Very fast to scan." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Kwadratowy kod 2D przechowujący dużo danych. Bardzo szybki w skanowaniu." } }
+      }
+    },
+    "codeType.qr.usage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Mobile apps, websites, digital loyalty cards, payments" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Aplikacje mobilne, strony www, karty cyfrowe, płatności" } }
+      }
+    },
+    "codeType.pdf417.desc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Stacked 2D barcode that can encode large data. Used in official documents." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Warstwowy kod 2D kodujący dużo danych. Używany w dokumentach." } }
+      }
+    },
+    "codeType.pdf417.usage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "ID cards, driver's licenses, boarding passes" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Dowody, prawa jazdy, karty pokładowe" } }
+      }
+    },
+    "codeType.aztec.desc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Compact 2D code that works well even when printed small or damaged." } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Kompaktowy kod 2D działający nawet przy małym wydruku lub uszkodzeniu." } }
+      }
+    },
+    "codeType.aztec.usage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Transport tickets, airline boarding passes" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Bilety komunikacyjne, karty pokładowe" } }
+      }
+    },
+    "codeType.common" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Common uses:" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Zastosowania:" } }
+      }
+    },
+    "displayMode.barcode" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Barcode/QR" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Kod kreskowy/QR" } }
+      }
+    },
+    "displayMode.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Text only" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Tylko tekst" } }
+      }
+    },
+    "theme.dark" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dark" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Ciemny" } }
+      }
+    },
+    "theme.light" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Light" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Jasny" } }
+      }
+    },
+    "theme.blue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Blue" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Niebieski" } }
+      }
+    },
+    "theme.green" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Green" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Zielony" } }
+      }
+    },
+    "theme.purple" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Purple" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Fioletowy" } }
+      }
+    },
+    "theme.orange" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Orange" } },
+        "pl" : { "stringUnit" : { "state" : "translated", "value" : "Pomarańczowy" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}

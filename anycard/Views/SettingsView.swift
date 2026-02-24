@@ -15,6 +15,13 @@ enum CardLayout: String, CaseIterable, Identifiable, RawRepresentable {
         case .stack: return "rectangle.stack"
         }
     }
+    
+    var localizedName: String {
+        switch self {
+        case .grid: return String(localized: "layout.grid")
+        case .stack: return String(localized: "layout.stack")
+        }
+    }
 }
 
 struct SettingsView: View {
@@ -37,56 +44,56 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 Section {
-                    Picker("Card Layout", selection: $cardLayout) {
+                    Picker(String(localized: "settings.cardLayout"), selection: $cardLayout) {
                         ForEach(CardLayout.allCases) { layout in
-                            Label(layout.rawValue, systemImage: layout.icon)
+                            Label(layout.localizedName, systemImage: layout.icon)
                                 .tag(layout)
                         }
                     }
                 } header: {
-                    Text("Appearance")
+                    Text(String(localized: "settings.appearance"))
                 } footer: {
-                    Text("Grid shows cards in a 2-column layout. Stack shows cards overlapping like Apple Wallet.")
+                    Text(String(localized: "settings.cardLayout.footer"))
                 }
                 
                 Section {
                     Button {
                         exportAllCards()
                     } label: {
-                        Label("Export All Cards", systemImage: "square.and.arrow.up")
+                        Label(String(localized: "settings.export"), systemImage: "square.and.arrow.up")
                     }
                     .disabled(cards.isEmpty)
                     
                     Button {
                         showImporter = true
                     } label: {
-                        Label("Import Cards", systemImage: "square.and.arrow.down")
+                        Label(String(localized: "settings.import"), systemImage: "square.and.arrow.down")
                     }
                 } header: {
-                    Text("Backup & Restore")
+                    Text(String(localized: "settings.backup"))
                 } footer: {
-                    Text("Export creates a .anycard file you can use to backup or transfer your cards.")
+                    Text(String(localized: "settings.backup.footer"))
                 }
                 
                 Section {
                     HStack {
-                        Text("Cards")
+                        Text(String(localized: "settings.cards"))
                         Spacer()
                         Text("\(cards.count)")
                             .foregroundStyle(.secondary)
                     }
                     
                     HStack {
-                        Text("Version")
+                        Text(String(localized: "settings.version"))
                         Spacer()
                         Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")
                             .foregroundStyle(.secondary)
                     }
                 } header: {
-                    Text("Info")
+                    Text(String(localized: "settings.info"))
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle(String(localized: "settings.title"))
             .fileExporter(
                 isPresented: $showExporter,
                 document: AnycardDocument(data: exportData ?? Data()),
@@ -108,15 +115,20 @@ struct SettingsView: View {
             ) { result in
                 handleImport(result)
             }
-            .alert("Import Complete", isPresented: $showImportAlert) {
-                Button("OK", role: .cancel) {}
+            .alert(String(localized: "import.complete"), isPresented: $showImportAlert) {
+                Button(String(localized: "button.ok"), role: .cancel) {}
             } message: {
                 if let result = importResult {
-                    Text("Imported \(result.imported) cards.\(result.skipped > 0 ? " Skipped \(result.skipped) duplicates." : "")")
+                    let importedText = String(localized: "import.result")
+                        .replacingOccurrences(of: "%d", with: "\(result.imported)")
+                    let skippedText = result.skipped > 0 
+                        ? String(localized: "import.skipped").replacingOccurrences(of: "%d", with: "\(result.skipped)")
+                        : ""
+                    Text(importedText + skippedText)
                 }
             }
-            .alert("Error", isPresented: $showError) {
-                Button("OK", role: .cancel) {}
+            .alert(String(localized: "error.title"), isPresented: $showError) {
+                Button(String(localized: "button.ok"), role: .cancel) {}
             } message: {
                 Text(errorMessage)
             }
@@ -146,7 +158,7 @@ struct SettingsView: View {
     
     private func importFromURL(_ url: URL) {
         guard url.startAccessingSecurityScopedResource() else {
-            errorMessage = "Cannot access file"
+            errorMessage = String(localized: "error.fileAccess")
             showError = true
             return
         }

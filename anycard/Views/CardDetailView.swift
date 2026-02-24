@@ -28,17 +28,17 @@ struct CardDetailView: View {
                 // Collapsible details
                 DisclosureGroup(isExpanded: $detailsExpanded) {
                     VStack(alignment: .leading, spacing: 12) {
-                        DetailRow(title: "Card number", value: card.code)
-                        DetailRow(title: "Code type", value: card.codeType.rawValue)
-                        DetailRow(title: "Display mode", value: card.displayMode.rawValue)
-                        DetailRow(title: "Added", value: card.createdAt.formatted(date: .abbreviated, time: .shortened))
+                        DetailRow(title: String(localized: "card.number"), value: card.code)
+                        DetailRow(title: String(localized: "card.codeType"), value: card.codeType.rawValue)
+                        DetailRow(title: String(localized: "detail.displayMode"), value: card.displayMode.localizedName)
+                        DetailRow(title: String(localized: "detail.added"), value: card.createdAt.formatted(date: .abbreviated, time: .shortened))
                         if card.updatedAt != card.createdAt {
-                            DetailRow(title: "Modified", value: card.updatedAt.formatted(date: .abbreviated, time: .shortened))
+                            DetailRow(title: String(localized: "detail.modified"), value: card.updatedAt.formatted(date: .abbreviated, time: .shortened))
                         }
                     }
                     .padding(.top, 8)
                 } label: {
-                    Text("Card Details")
+                    Text(String(localized: "card.detail.title"))
                         .font(.headline)
                 }
                 .padding()
@@ -48,7 +48,7 @@ struct CardDetailView: View {
                 // Notes section
                 if let notes = card.notes, !notes.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Notes")
+                        Text(String(localized: "card.notes"))
                             .font(.headline)
                         Text(notes)
                             .font(.body)
@@ -64,13 +64,13 @@ struct CardDetailView: View {
                 Button {
                     // TODO: Implement when Developer Account is available
                 } label: {
-                    Label("Add to Apple Wallet", systemImage: "wallet.pass")
+                    Label(String(localized: "wallet.add"), systemImage: "wallet.pass")
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(true)
                 
-                Text("Apple Wallet integration requires Apple Developer Program membership.")
+                Text(String(localized: "wallet.notice"))
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -85,7 +85,7 @@ struct CardDetailView: View {
                 Button {
                     showEditSheet = true
                 } label: {
-                    Text("Edit")
+                    Text(String(localized: "button.edit"))
                 }
             }
         }

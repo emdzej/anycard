@@ -29,7 +29,7 @@ struct HomeView: View {
                     }
                 }
             }
-            .navigationTitle("My Cards")
+            .navigationTitle(String(localized: "home.title"))
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
@@ -58,11 +58,11 @@ struct HomeView: View {
     
     private var emptyState: some View {
         ContentUnavailableView {
-            Label("No Cards", systemImage: "creditcard")
+            Label(String(localized: "home.empty.title"), systemImage: "creditcard")
         } description: {
-            Text("Add your first loyalty card to get started.")
+            Text(String(localized: "home.empty.description"))
         } actions: {
-            Button("Add Card") {
+            Button(String(localized: "home.empty.button")) {
                 showingAddCard = true
             }
             .buttonStyle(.borderedProminent)
@@ -81,7 +81,7 @@ struct HomeView: View {
                         Button(role: .destructive) {
                             deleteCard(card)
                         } label: {
-                            Label("Delete", systemImage: "trash")
+                            Label(String(localized: "button.delete"), systemImage: "trash")
                         }
                     }
                 }
@@ -108,7 +108,7 @@ struct HomeView: View {
                         Button(role: .destructive) {
                             deleteCard(card)
                         } label: {
-                            Label("Delete", systemImage: "trash")
+                            Label(String(localized: "button.delete"), systemImage: "trash")
                         }
                     }
                 }

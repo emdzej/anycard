@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		7C77BCFEFCA7C0DB8BBB6521 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00DBD83C855D26918D3DD48 /* AddCardView.swift */; };
 		89AF1103113A31502FEAE775 /* FullscreenScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD7107C80505562BBF0A7D /* FullscreenScanView.swift */; };
 		A09345909C5981149B394751 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E60C1687C4240A7DAB41C38 /* Card.swift */; };
+		A65318C855ABE0B2F5407376 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6A5FA354799AD395D124780A /* Localizable.xcstrings */; };
 		AB6A95AABDBE8DA99FC54F47 /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF33EE2A18362B326956C37 /* BarcodeView.swift */; };
 		AED583E72D45EEF100AFF292 /* UTType+Anycard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18825B700010118FECA8F12 /* UTType+Anycard.swift */; };
 		B305F13D671CB3100DB27837 /* BarcodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4453A82CF5A2471AB5CFDB /* BarcodeGenerator.swift */; };
@@ -34,10 +35,11 @@
 		32C9293081E7830355E352AC /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		3DDD7107C80505562BBF0A7D /* FullscreenScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenScanView.swift; sourceTree = "<group>"; };
 		4C945AB3F7095DB5C397AFE1 /* CardPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreview.swift; sourceTree = "<group>"; };
-		569E58F670A681CEB5E12AB6 /* anycard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = anycard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		569E58F670A681CEB5E12AB6 /* anycard.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = anycard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFEB9641C37E582CD540E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E60C1687C4240A7DAB41C38 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		69969AEFCBACE0FBA86C81A5 /* ImageScannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScannerService.swift; sourceTree = "<group>"; };
+		6A5FA354799AD395D124780A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		8F4D2DAF11054B8616FBD9FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		90461DCED8A9AD5142D99ABB /* EditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardView.swift; sourceTree = "<group>"; };
 		9BF33EE2A18362B326956C37 /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				5BFEB9641C37E582CD540E03 /* Assets.xcassets */,
+				6A5FA354799AD395D124780A /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					9515743E30900837B291530B = {
+						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -183,9 +187,11 @@
 			knownRegions = (
 				Base,
 				en,
+				pl,
 			);
 			mainGroup = 98B1D5A1E59E26845D8F9279;
 			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -200,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14700D5B088DA519E44A5336 /* Assets.xcassets in Resources */,
+				A65318C855ABE0B2F5407376 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +305,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H52YTG8999;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = anycard/Info.plist;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
@@ -326,7 +332,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H52YTG8999;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = anycard/Info.plist;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
