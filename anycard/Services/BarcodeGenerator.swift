@@ -56,9 +56,16 @@ final class BarcodeGenerator: @unchecked Sendable {
         case .qrCode, .pdf417, .aztec:
             // These support UTF-8
             return code.data(using: .utf8)
-        case .code128, .ean13:
-            // These use ASCII/ISO-8859-1
+        case .code128:
+            // Code 128 uses ASCII/ISO-8859-1
             return code.data(using: .isoLatin1)
+        case .ean13:
+            // EAN-13 generator expects exactly 12 digits (calculates checksum) or 13 with valid checksum
+            // If 13 digits provided, strip the checksum and let CoreImage recalculate
+            let digits = code.filter { $0.isNumber }
+            let normalizedCode = digits.count == 13 ? String(digits.prefix(12)) : digits
+            guard normalizedCode.count == 12 else { return nil }
+            return normalizedCode.data(using: .ascii)
         }
     }
     

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,7 +34,7 @@
 		32C9293081E7830355E352AC /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		3DDD7107C80505562BBF0A7D /* FullscreenScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenScanView.swift; sourceTree = "<group>"; };
 		4C945AB3F7095DB5C397AFE1 /* CardPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreview.swift; sourceTree = "<group>"; };
-		569E58F670A681CEB5E12AB6 /* anycard.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = anycard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		569E58F670A681CEB5E12AB6 /* anycard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = anycard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFEB9641C37E582CD540E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E60C1687C4240A7DAB41C38 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		69969AEFCBACE0FBA86C81A5 /* ImageScannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScannerService.swift; sourceTree = "<group>"; };
@@ -172,7 +172,6 @@
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					9515743E30900837B291530B = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -187,7 +186,6 @@
 			);
 			mainGroup = 98B1D5A1E59E26845D8F9279;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -300,6 +298,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H52YTG8999;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = anycard/Info.plist;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
@@ -327,6 +326,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H52YTG8999;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = anycard/Info.plist;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
