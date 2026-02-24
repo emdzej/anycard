@@ -90,7 +90,7 @@ struct CodeTypeRow: View {
             HStack {
                 Image(systemName: icon)
                     .font(.title2)
-                    .foregroundStyle(.accent)
+                    .foregroundStyle(.tint)
                     .frame(width: 30)
                 
                 Text(name)
