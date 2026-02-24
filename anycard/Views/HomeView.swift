@@ -95,10 +95,11 @@ struct HomeView: View {
     
     private var cardStack: some View {
         ScrollView {
-            LazyVStack(spacing: -60) {  // Negative spacing for overlap
+            LazyVStack(spacing: -70) {  // Negative spacing for overlap
                 ForEach(Array(cards.enumerated()), id: \.element.id) { index, card in
                     NavigationLink(value: card) {
-                        CardPreview(card: card, size: .medium)
+                        CardPreview(card: card, size: .large)
+                            .frame(maxWidth: .infinity)
                             .shadow(color: .black.opacity(0.15), radius: 8, y: 4)
                     }
                     .buttonStyle(.plain)
@@ -112,7 +113,8 @@ struct HomeView: View {
                     }
                 }
             }
-            .padding()
+            .padding(.horizontal, 16)
+            .padding(.vertical)
             .padding(.bottom, 80)  // Extra padding at bottom for last card
         }
         .navigationDestination(for: Card.self) { card in

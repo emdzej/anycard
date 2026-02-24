@@ -6,12 +6,21 @@ enum CardPreviewSize {
     case large
     case fullscreen
     
-    var width: CGFloat {
+    var width: CGFloat? {
         switch self {
         case .thumbnail: return 160
         case .medium: return 280
-        case .large: return 340
-        case .fullscreen: return 340
+        case .large: return nil  // Flexible width
+        case .fullscreen: return nil  // Flexible width
+        }
+    }
+    
+    var minWidth: CGFloat {
+        switch self {
+        case .thumbnail: return 160
+        case .medium: return 280
+        case .large: return 300
+        case .fullscreen: return 300
         }
     }
     
@@ -86,7 +95,8 @@ struct CardPreview: View {
                 barcodeLayout
             }
         }
-        .frame(width: size.width, height: size.height)
+        .frame(minWidth: size.minWidth, maxWidth: size.width ?? .infinity)
+        .frame(height: size.height)
         .background {
             if let imageData = card.customImage, let uiImage = UIImage(data: imageData) {
                 Image(uiImage: uiImage)
