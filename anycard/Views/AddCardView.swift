@@ -11,11 +11,16 @@ struct AddCardView: View {
     @State private var codeType: CodeType = .code128
     @State private var displayMode: DisplayMode = .barcode
     @State private var notes = ""
+    @State private var backgroundColor: Color = Color(hex: "#1C1C1E")
+    @State private var textColor: Color = .white
+    @State private var customImage: Data?
     
     @State private var showCameraScanner = false
     @State private var showCodeTypeInfo = false
     @State private var selectedPhoto: PhotosPickerItem?
+    @State private var selectedImagePhoto: PhotosPickerItem?
     @State private var isProcessingImage = false
+    @State private var isProcessingCustomImage = false
     @State private var scanError: String?
     @State private var showScanError = false
     
@@ -92,6 +97,60 @@ struct AddCardView: View {
                         .lineLimit(3...6)
                 }
                 
+                // Colors section
+                Section("Colors") {
+                    ColorPicker("Background", selection: $backgroundColor, supportsOpacity: false)
+                    ColorPicker("Text", selection: $textColor, supportsOpacity: false)
+                    
+                    // Preset themes
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 12) {
+                            ForEach(ColorTheme.allCases) { theme in
+                                ThemeButton(theme: theme) {
+                                    backgroundColor = theme.background
+                                    textColor = theme.text
+                                }
+                            }
+                        }
+                        .padding(.vertical, 4)
+                    }
+                    .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                }
+                
+                // Custom image section
+                Section("Custom Image") {
+                    if let imageData = customImage, let uiImage = UIImage(data: imageData) {
+                        HStack {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 60, height: 60)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                            
+                            Spacer()
+                            
+                            Button(role: .destructive) {
+                                customImage = nil
+                            } label: {
+                                Label("Remove", systemImage: "trash")
+                            }
+                        }
+                    }
+                    
+                    PhotosPicker(selection: $selectedImagePhoto, matching: .images) {
+                        Label(customImage == nil ? "Add Image" : "Change Image", systemImage: "photo")
+                    }
+                    .disabled(isProcessingCustomImage)
+                    
+                    if isProcessingCustomImage {
+                        HStack {
+                            ProgressView()
+                            Text("Processing...")
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+                
                 // Preview section
                 Section("Preview") {
                     if isValid {
@@ -100,7 +159,10 @@ struct AddCardView: View {
                                 name: name,
                                 code: code,
                                 codeType: codeType,
-                                displayMode: displayMode
+                                displayMode: displayMode,
+                                backgroundColor: backgroundColor.toHex(),
+                                textColor: textColor.toHex(),
+                                customImage: customImage
                             ),
                             size: .medium
                         )
@@ -141,6 +203,11 @@ struct AddCardView: View {
                     processSelectedPhoto(item)
                 }
             }
+            .onChange(of: selectedImagePhoto) { _, newValue in
+                if let item = newValue {
+                    processCustomImage(item)
+                }
+            }
             .alert("Scan Error", isPresented: $showScanError) {
                 Button("OK", role: .cancel) {}
             } message: {
@@ -158,7 +225,10 @@ struct AddCardView: View {
             code: code.trimmingCharacters(in: .whitespaces),
             codeType: codeType,
             displayMode: displayMode,
-            notes: notes.trimmingCharacters(in: .whitespaces).isEmpty ? nil : notes.trimmingCharacters(in: .whitespaces)
+            notes: notes.trimmingCharacters(in: .whitespaces).isEmpty ? nil : notes.trimmingCharacters(in: .whitespaces),
+            backgroundColor: backgroundColor.toHex(),
+            textColor: textColor.toHex(),
+            customImage: customImage
         )
         modelContext.insert(card)
         dismiss()
@@ -186,6 +256,34 @@ struct AddCardView: View {
                     scanError = error.localizedDescription
                     showScanError = true
                     isProcessingImage = false
+                }
+            }
+        }
+    }
+    
+    private func processCustomImage(_ item: PhotosPickerItem) {
+        isProcessingCustomImage = true
+        selectedImagePhoto = nil
+        
+        Task {
+            do {
+                guard let data = try await item.loadTransferable(type: Data.self),
+                      let image = UIImage(data: data) else {
+                    isProcessingCustomImage = false
+                    return
+                }
+                
+                // Resize and compress
+                let resized = image.resized(toMaxDimension: 512)
+                let compressed = resized.jpegData(compressionQuality: 0.8)
+                
+                await MainActor.run {
+                    customImage = compressed
+                    isProcessingCustomImage = false
+                }
+            } catch {
+                await MainActor.run {
+                    isProcessingCustomImage = false
                 }
             }
         }
