@@ -66,7 +66,7 @@ struct EditCardView: View {
                         .textContentType(.creditCardNumber)
                         .keyboardType(.asciiCapable)
                     
-                    Toggle("Show as barcode", isOn: Binding(
+                    Toggle("Show scan code", isOn: Binding(
                         get: { displayMode == .barcode },
                         set: { displayMode = $0 ? .barcode : .text }
                     ))
