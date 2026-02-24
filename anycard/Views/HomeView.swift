@@ -3,7 +3,7 @@ import SwiftData
 
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Card.updatedAt, order: .reverse) private var cards: [Card]
+    @Query(sort: \Card.createdAt, order: .reverse) private var cards: [Card]
     
     @AppStorage("cardLayout") private var cardLayout: CardLayout = .grid
     
