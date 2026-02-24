@@ -38,6 +38,35 @@ enum CodeType: String, Codable, CaseIterable, Identifiable {
         case .qrCode, .pdf417, .aztec: return true
         }
     }
+    
+    /// Check if a code string is compatible with this code type
+    func isCompatible(with code: String) -> Bool {
+        let trimmed = code.trimmingCharacters(in: .whitespaces)
+        guard !trimmed.isEmpty else { return true }  // Empty is always OK (not validating yet)
+        
+        switch self {
+        case .ean13:
+            // EAN-13: exactly 13 digits (or 12 digits, checksum will be added)
+            let digitsOnly = trimmed.filter { $0.isNumber }
+            return digitsOnly.count == trimmed.count && (trimmed.count == 12 || trimmed.count == 13)
+            
+        case .code128:
+            // Code 128: ASCII printable characters (32-126)
+            return trimmed.allSatisfy { char in
+                guard let ascii = char.asciiValue else { return false }
+                return ascii >= 32 && ascii <= 126
+            }
+            
+        case .qrCode, .pdf417, .aztec:
+            // 2D codes accept virtually anything
+            return true
+        }
+    }
+    
+    /// Returns compatible code types for a given code string
+    static func compatibleTypes(for code: String) -> [CodeType] {
+        allCases.filter { $0.isCompatible(with: code) }
+    }
 }
 
 /// Loyalty card model

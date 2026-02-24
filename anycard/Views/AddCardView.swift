@@ -75,7 +75,7 @@ struct AddCardView: View {
                     if displayMode == .barcode {
                         HStack {
                             Picker("Code Type", selection: $codeType) {
-                                ForEach(CodeType.allCases) { type in
+                                ForEach(CodeType.compatibleTypes(for: code)) { type in
                                     Text(type.rawValue).tag(type)
                                 }
                             }
@@ -87,6 +87,14 @@ struct AddCardView: View {
                                     .foregroundStyle(.secondary)
                             }
                             .buttonStyle(.plain)
+                        }
+                        .onChange(of: code) { _, newCode in
+                            // Auto-switch to compatible type if current becomes invalid
+                            if !codeType.isCompatible(with: newCode) {
+                                if let firstCompatible = CodeType.compatibleTypes(for: newCode).first {
+                                    codeType = firstCompatible
+                                }
+                            }
                         }
                     }
                 }
