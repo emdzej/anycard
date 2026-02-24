@@ -67,11 +67,10 @@ struct AddCardView: View {
                         }
                     }
                     
-                    Picker("Display as", selection: $displayMode) {
-                        ForEach(DisplayMode.allCases) { mode in
-                            Text(mode.rawValue).tag(mode)
-                        }
-                    }
+                    Toggle("Show as barcode", isOn: Binding(
+                        get: { displayMode == .barcode },
+                        set: { displayMode = $0 ? .barcode : .text }
+                    ))
                 }
                 
                 // Notes section
