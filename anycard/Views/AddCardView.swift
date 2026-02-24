@@ -62,26 +62,28 @@ struct AddCardView: View {
                         .textContentType(.creditCardNumber)
                         .keyboardType(.asciiCapable)
                     
-                    HStack {
-                        Picker("Code Type", selection: $codeType) {
-                            ForEach(CodeType.allCases) { type in
-                                Text(type.rawValue).tag(type)
-                            }
-                        }
-                        
-                        Button {
-                            showCodeTypeInfo = true
-                        } label: {
-                            Image(systemName: "info.circle")
-                                .foregroundStyle(.secondary)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                    
                     Toggle("Show as barcode", isOn: Binding(
                         get: { displayMode == .barcode },
                         set: { displayMode = $0 ? .barcode : .text }
                     ))
+                    
+                    if displayMode == .barcode {
+                        HStack {
+                            Picker("Code Type", selection: $codeType) {
+                                ForEach(CodeType.allCases) { type in
+                                    Text(type.rawValue).tag(type)
+                                }
+                            }
+                            
+                            Button {
+                                showCodeTypeInfo = true
+                            } label: {
+                                Image(systemName: "info.circle")
+                                    .foregroundStyle(.secondary)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
                 }
                 
                 // Notes section
