@@ -9,9 +9,10 @@ struct AddCardView: View {
     @State private var name = ""
     @State private var code = ""
     @State private var codeType: CodeType = .code128
+    @State private var displayMode: DisplayMode = .barcode
+    @State private var notes = ""
     
     @State private var showCameraScanner = false
-    @State private var showImagePicker = false
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var isProcessingImage = false
     @State private var scanError: String?
@@ -56,7 +57,7 @@ struct AddCardView: View {
                     TextField("Card Name", text: $name)
                         .textContentType(.organizationName)
                     
-                    TextField("Card Number / Code", text: $code)
+                    TextField("Card number", text: $code)
                         .textContentType(.creditCardNumber)
                         .keyboardType(.asciiCapable)
                     
@@ -65,13 +66,30 @@ struct AddCardView: View {
                             Text(type.rawValue).tag(type)
                         }
                     }
+                    
+                    Picker("Display as", selection: $displayMode) {
+                        ForEach(DisplayMode.allCases) { mode in
+                            Text(mode.rawValue).tag(mode)
+                        }
+                    }
+                }
+                
+                // Notes section
+                Section("Notes") {
+                    TextField("Optional notes", text: $notes, axis: .vertical)
+                        .lineLimit(3...6)
                 }
                 
                 // Preview section
                 Section("Preview") {
                     if isValid {
                         CardPreview(
-                            card: Card(name: name, code: code, codeType: codeType),
+                            card: Card(
+                                name: name,
+                                code: code,
+                                codeType: codeType,
+                                displayMode: displayMode
+                            ),
                             size: .medium
                         )
                         .frame(maxWidth: .infinity)
@@ -123,7 +141,9 @@ struct AddCardView: View {
         let card = Card(
             name: name.trimmingCharacters(in: .whitespaces),
             code: code.trimmingCharacters(in: .whitespaces),
-            codeType: codeType
+            codeType: codeType,
+            displayMode: displayMode,
+            notes: notes.trimmingCharacters(in: .whitespaces).isEmpty ? nil : notes.trimmingCharacters(in: .whitespaces)
         )
         modelContext.insert(card)
         dismiss()

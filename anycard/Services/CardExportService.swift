@@ -19,6 +19,8 @@ struct CardData: Codable {
     let name: String
     let code: String
     let codeType: String
+    let displayMode: String
+    let notes: String?
     let backgroundColor: String
     let textColor: String
     let customImage: Data?
@@ -29,6 +31,8 @@ struct CardData: Codable {
         self.name = card.name
         self.code = card.code
         self.codeType = card.codeType.rawValue
+        self.displayMode = card.displayMode.rawValue
+        self.notes = card.notes
         self.backgroundColor = card.backgroundColor
         self.textColor = card.textColor
         self.customImage = card.customImage
@@ -37,11 +41,14 @@ struct CardData: Codable {
     
     func toCard() -> Card {
         let type = CodeType.allCases.first { $0.rawValue == codeType } ?? .code128
+        let mode = DisplayMode.allCases.first { $0.rawValue == displayMode } ?? .barcode
         return Card(
             id: id,
             name: name,
             code: code,
             codeType: type,
+            displayMode: mode,
+            notes: notes,
             backgroundColor: backgroundColor,
             textColor: textColor,
             customImage: customImage

@@ -2,6 +2,14 @@ import Foundation
 import SwiftData
 import UIKit
 
+/// Display mode for card number
+enum DisplayMode: String, Codable, CaseIterable, Identifiable {
+    case barcode = "Barcode/QR"
+    case text = "Text only"
+    
+    var id: String { rawValue }
+}
+
 /// Supported barcode/QR code types
 enum CodeType: String, Codable, CaseIterable, Identifiable {
     case code128 = "Code 128"
@@ -39,6 +47,8 @@ final class Card {
     var name: String
     var code: String
     var codeType: CodeType
+    var displayMode: DisplayMode
+    var notes: String?
     var backgroundColor: String  // hex color
     var textColor: String        // hex color
     @Attribute(.externalStorage) var customImage: Data?
@@ -50,6 +60,8 @@ final class Card {
         name: String,
         code: String,
         codeType: CodeType = .code128,
+        displayMode: DisplayMode = .barcode,
+        notes: String? = nil,
         backgroundColor: String = "#1C1C1E",
         textColor: String = "#FFFFFF",
         customImage: Data? = nil
@@ -58,6 +70,8 @@ final class Card {
         self.name = name
         self.code = code
         self.codeType = codeType
+        self.displayMode = displayMode
+        self.notes = notes
         self.backgroundColor = backgroundColor
         self.textColor = textColor
         self.customImage = customImage

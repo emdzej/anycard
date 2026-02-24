@@ -9,6 +9,8 @@ struct EditCardView: View {
     @State private var name: String
     @State private var code: String
     @State private var codeType: CodeType
+    @State private var displayMode: DisplayMode
+    @State private var notes: String
     @State private var backgroundColor: Color
     @State private var textColor: Color
     @State private var selectedPhoto: PhotosPickerItem?
@@ -20,6 +22,8 @@ struct EditCardView: View {
         _name = State(initialValue: card.name)
         _code = State(initialValue: card.code)
         _codeType = State(initialValue: card.codeType)
+        _displayMode = State(initialValue: card.displayMode)
+        _notes = State(initialValue: card.notes ?? "")
         _backgroundColor = State(initialValue: Color(UIColor(hex: card.backgroundColor) ?? .systemGray6))
         _textColor = State(initialValue: Color(UIColor(hex: card.textColor) ?? .white))
         _customImage = State(initialValue: card.customImage)
@@ -40,6 +44,7 @@ struct EditCardView: View {
                             name: name,
                             code: code,
                             codeType: codeType,
+                            displayMode: displayMode,
                             backgroundColor: backgroundColor.toHex(),
                             textColor: textColor.toHex(),
                             customImage: customImage
@@ -56,7 +61,7 @@ struct EditCardView: View {
                     TextField("Card Name", text: $name)
                         .textContentType(.organizationName)
                     
-                    TextField("Card Number / Code", text: $code)
+                    TextField("Card number", text: $code)
                         .textContentType(.creditCardNumber)
                         .keyboardType(.asciiCapable)
                     
@@ -65,6 +70,18 @@ struct EditCardView: View {
                             Text(type.rawValue).tag(type)
                         }
                     }
+                    
+                    Picker("Display as", selection: $displayMode) {
+                        ForEach(DisplayMode.allCases) { mode in
+                            Text(mode.rawValue).tag(mode)
+                        }
+                    }
+                }
+                
+                // Notes section
+                Section("Notes") {
+                    TextField("Optional notes", text: $notes, axis: .vertical)
+                        .lineLimit(3...6)
                 }
                 
                 // Colors
@@ -149,6 +166,8 @@ struct EditCardView: View {
         card.name = name.trimmingCharacters(in: .whitespaces)
         card.code = code.trimmingCharacters(in: .whitespaces)
         card.codeType = codeType
+        card.displayMode = displayMode
+        card.notes = notes.trimmingCharacters(in: .whitespaces).isEmpty ? nil : notes.trimmingCharacters(in: .whitespaces)
         card.backgroundColor = backgroundColor.toHex()
         card.textColor = textColor.toHex()
         card.customImage = customImage
