@@ -97,54 +97,27 @@ struct HomeView: View {
         ScrollView {
             LazyVStack(spacing: -60) {  // Negative spacing for overlap
                 ForEach(Array(cards.enumerated()), id: \.element.id) { index, card in
-                    GeometryReader { geo in
-                        let minY = geo.frame(in: .named("scroll")).minY
-                        let scale = calculateScale(minY: minY)
-                        
-                        NavigationLink(value: card) {
-                            CardPreview(card: card, size: .medium)
-                                .shadow(color: .black.opacity(0.15), radius: 8, y: 4)
-                        }
-                        .buttonStyle(.plain)
-                        .scaleEffect(scale, anchor: .top)
-                        .contextMenu {
-                            Button(role: .destructive) {
-                                deleteCard(card)
-                            } label: {
-                                Label("Delete", systemImage: "trash")
-                            }
+                    NavigationLink(value: card) {
+                        CardPreview(card: card, size: .medium)
+                            .shadow(color: .black.opacity(0.15), radius: 8, y: 4)
+                    }
+                    .buttonStyle(.plain)
+                    .zIndex(Double(cards.count - index))  // Top cards have higher z-index
+                    .contextMenu {
+                        Button(role: .destructive) {
+                            deleteCard(card)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
                         }
                     }
-                    .frame(height: 175)  // CardPreview medium height
-                    .zIndex(Double(cards.count - index))  // First card highest z-index
                 }
             }
             .padding()
             .padding(.bottom, 80)  // Extra padding at bottom for last card
         }
-        .coordinateSpace(name: "scroll")
         .navigationDestination(for: Card.self) { card in
             CardDetailView(card: card)
         }
-    }
-    
-    /// Calculate scale based on card position - cards near top are larger
-    private func calculateScale(minY: CGFloat) -> CGFloat {
-        let targetY: CGFloat = 100  // Position where card should be fully scaled
-        let maxScale: CGFloat = 1.08
-        let minScale: CGFloat = 1.0
-        
-        // Cards at or above target position get max scale
-        if minY <= targetY {
-            return maxScale
-        }
-        
-        // Gradually decrease scale as card moves down
-        let distance = minY - targetY
-        let fadeDistance: CGFloat = 150
-        let progress = min(distance / fadeDistance, 1.0)
-        
-        return maxScale - (progress * (maxScale - minScale))
     }
     
     private func deleteCard(_ card: Card) {
